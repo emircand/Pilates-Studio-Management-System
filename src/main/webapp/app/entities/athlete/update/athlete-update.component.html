@@ -1,0 +1,93 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-athlete-heading" data-cy="AthleteCreateUpdateHeading" jhiTranslate="pilatesapplicationApp.athlete.home.createOrEditLabel">
+        Yeni Athlete ekle veya guncelle
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.address" for="field_address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.birthday" for="field_birthday">Birthday</label>
+          <div class="d-flex">
+            <input
+              id="field_birthday"
+              data-cy="birthday"
+              type="datetime-local"
+              class="form-control"
+              name="birthday"
+              formControlName="birthday"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.athlete.sessionPackage" for="field_sessionPackage"
+            >Session Package</label
+          >
+          <select
+            class="form-control"
+            id="field_sessionPackage"
+            data-cy="sessionPackage"
+            name="sessionPackage"
+            formControlName="sessionPackage"
+            [compareWith]="compareSessionPackage"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="sessionPackageOption" *ngFor="let sessionPackageOption of sessionPackagesCollection">
+              {{ sessionPackageOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">İptal</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Kaydet</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

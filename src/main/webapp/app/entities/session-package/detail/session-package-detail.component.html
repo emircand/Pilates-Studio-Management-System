@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sessionPackage">
+      <h2 data-cy="sessionPackageDetailsHeading">
+        <span jhiTranslate="pilatesapplicationApp.sessionPackage.detail.title">Session Package</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.id">Id</span></dt>
+        <dd>
+          <span>{{ sessionPackage.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.name">Name</span></dt>
+        <dd>
+          <span>{{ sessionPackage.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.price">Price</span></dt>
+        <dd>
+          <span>{{ sessionPackage.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.credits">Credits</span></dt>
+        <dd>
+          <span>{{ sessionPackage.credits }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ sessionPackage.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ sessionPackage.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.reviseCount">Revise Count</span></dt>
+        <dd>
+          <span>{{ sessionPackage.reviseCount }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.sessionPackage.cancelCount">Cancel Count</span></dt>
+        <dd>
+          <span>{{ sessionPackage.cancelCount }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Geri</span>
+      </button>
+
+      <button type="button" [routerLink]="['/session-package', sessionPackage.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Düzenle</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "pilatesapplicationApp": {
+    "session": {
+      "home": {
+        "title": "Sessions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Session",
+        "createOrEditLabel": "Create or edit a Session",
+        "search": "Search for Session",
+        "notFound": "No Sessions found"
+      },
+      "created": "A new Session is created with identifier {{ param }}",
+      "updated": "A Session is updated with identifier {{ param }}",
+      "deleted": "A Session is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Session {{ id }}?"
+      },
+      "detail": {
+        "title": "Session"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "qrCode": "Qr Code",
+      "sessionStatus": "Session Status",
+      "isNotified": "Is Notified",
+      "staff": "Staff",
+      "athlete": "Athlete"
+    }
+  }
+}

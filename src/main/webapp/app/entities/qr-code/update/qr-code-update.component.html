@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-qr-code-heading" data-cy="QRCodeCreateUpdateHeading" jhiTranslate="pilatesapplicationApp.qRCode.home.createOrEditLabel">
+        Yeni QR Code ekle veya guncelle
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.qRCode.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+          <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('code')?.errors?.required" jhiTranslate="entity.validation.required"
+              >Bu alan gereklidir.</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('code')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 5 }"
+              >Bu alan en az 5 karakterden oluşabilir.</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('code')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 200 }"
+              >Bu alan en fazla 200 karakterden oluşabilir.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.qRCode.sessionId" for="field_sessionId">Session Id</label>
+          <input type="text" class="form-control" name="sessionId" id="field_sessionId" data-cy="sessionId" formControlName="sessionId" />
+          <div *ngIf="editForm.get('sessionId')!.invalid && (editForm.get('sessionId')!.dirty || editForm.get('sessionId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sessionId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >Bu alan gereklidir.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.qRCode.athleteId" for="field_athleteId">Athlete Id</label>
+          <input type="text" class="form-control" name="athleteId" id="field_athleteId" data-cy="athleteId" formControlName="athleteId" />
+          <div *ngIf="editForm.get('athleteId')!.invalid && (editForm.get('athleteId')!.dirty || editForm.get('athleteId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('athleteId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >Bu alan gereklidir.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.qRCode.coachId" for="field_coachId">Coach Id</label>
+          <input type="text" class="form-control" name="coachId" id="field_coachId" data-cy="coachId" formControlName="coachId" />
+          <div *ngIf="editForm.get('coachId')!.invalid && (editForm.get('coachId')!.dirty || editForm.get('coachId')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('coachId')?.errors?.required" jhiTranslate="entity.validation.required"
+              >Bu alan gereklidir.</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">İptal</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Kaydet</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

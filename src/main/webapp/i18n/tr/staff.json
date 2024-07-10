@@ -1,0 +1,35 @@
+{
+  "pilatesapplicationApp": {
+    "staff": {
+      "home": {
+        "title": "Staff",
+        "refreshListLabel": "Listeyi yenile",
+        "createLabel": "Yeni Staff ekle",
+        "createOrEditLabel": "Yeni Staff ekle veya guncelle",
+        "search": "Staff ara",
+        "notFound": "Staff kaydi bulunamadi"
+      },
+      "created": "{{ param }} ID ile bir Staff eklendi",
+      "updated": "{{ param }} nolu Staff guncellendi",
+      "deleted": "{{ param }} nolu Staff silindi",
+      "delete": {
+        "question": "{{ id }} nolu Staff silinecek. Devem etmek istiyor musunuz?"
+      },
+      "detail": {
+        "title": "Staff"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "address": "Address",
+      "birthday": "Birthday",
+      "hireDate": "Hire Date",
+      "salary": "Salary",
+      "role": "Role",
+      "status": "Status",
+      "session": "Session"
+    }
+  }
+}

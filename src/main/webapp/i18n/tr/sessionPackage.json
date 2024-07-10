@@ -1,0 +1,32 @@
+{
+  "pilatesapplicationApp": {
+    "sessionPackage": {
+      "home": {
+        "title": "Session Packages",
+        "refreshListLabel": "Listeyi yenile",
+        "createLabel": "Yeni Session Package ekle",
+        "createOrEditLabel": "Yeni Session Package ekle veya guncelle",
+        "search": "Session Package ara",
+        "notFound": "Session Packages kaydi bulunamadi"
+      },
+      "created": "{{ param }} ID ile bir Session Package eklendi",
+      "updated": "{{ param }} nolu Session Package guncellendi",
+      "deleted": "{{ param }} nolu Session Package silindi",
+      "delete": {
+        "question": "{{ id }} nolu Session Package silinecek. Devem etmek istiyor musunuz?"
+      },
+      "detail": {
+        "title": "Session Package"
+      },
+      "id": "Id",
+      "name": "Name",
+      "price": "Price",
+      "credits": "Credits",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "reviseCount": "Revise Count",
+      "cancelCount": "Cancel Count",
+      "athlete": "Athlete"
+    }
+  }
+}

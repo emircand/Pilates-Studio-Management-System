@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20231116215146",
+  "entityTableName": "session",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "qrCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sessionStatus",
+      "fieldType": "SessionStatus",
+      "fieldValues": "Waiting,Canceled,Done,Undone"
+    },
+    {
+      "fieldName": "isNotified",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Session",
+  "relationships": []
+}

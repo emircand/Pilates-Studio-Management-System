@@ -1,0 +1,67 @@
+
+entity Staff  {
+	name String
+    email String
+    phone String
+    city String
+    address String
+    birthday Instant
+ 	hireDate Instant
+	salary Long
+    role Instant
+    status Boolean
+}
+
+entity QRCode {
+    code String required minlength(5) maxlength(200)
+    sessionId UUID required
+    athleteId UUID required
+    coachId UUID required
+}
+
+entity SessionPackage {
+	id String
+    name String
+    price Long
+    credits Integer
+    startDate Instant
+    endDate Instant
+    reviseCount Integer
+    cancelCount Integer
+}
+
+entity Athlete {
+	name String
+    email String
+    phone String
+    city String
+    address String
+    birthday Instant
+}
+
+entity Session {
+    startDate Instant
+    endDate Instant
+    qrCode String
+    sessionStatus SessionStatus
+    isNotified Boolean
+}
+
+
+enum Role {
+    Admin, Coach
+}
+
+enum SessionStatus {
+    Waiting, Canceled, Done, Undone
+}
+
+relationship OneToMany {
+	Athlete{Session} to Session
+    Staff{Session} to Session
+}
+
+relationship OneToOne {
+	Athlete{sessionPackage} to SessionPackage
+}
+

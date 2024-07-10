@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20231116214846",
+  "entityTableName": "qr_code",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "200",
+      "fieldValidateRulesMinlength": "5"
+    },
+    {
+      "fieldName": "sessionId",
+      "fieldType": "UUID",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "athleteId",
+      "fieldType": "UUID",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "coachId",
+      "fieldType": "UUID",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "QRCode",
+  "relationships": []
+}

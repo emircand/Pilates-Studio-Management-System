@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="session">
+      <h2 data-cy="sessionDetailsHeading"><span jhiTranslate="pilatesapplicationApp.session.detail.title">Session</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ session.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ session.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ session.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.qrCode">Qr Code</span></dt>
+        <dd>
+          <span>{{ session.qrCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.sessionStatus">Session Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'pilatesapplicationApp.SessionStatus.' + session.sessionStatus }}">{{ session.sessionStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.isNotified">Is Notified</span></dt>
+        <dd>
+          <span>{{ session.isNotified }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.staff">Staff</span></dt>
+        <dd>
+          <div *ngIf="session.staff">
+            <a [routerLink]="['/staff', session.staff.id, 'view']">{{ session.staff.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.session.athlete">Athlete</span></dt>
+        <dd>
+          <div *ngIf="session.athlete">
+            <a [routerLink]="['/athlete', session.athlete.id, 'view']">{{ session.athlete.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Geri</span>
+      </button>
+
+      <button type="button" [routerLink]="['/session', session.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Düzenle</span>
+      </button>
+    </div>
+  </div>
+</div>

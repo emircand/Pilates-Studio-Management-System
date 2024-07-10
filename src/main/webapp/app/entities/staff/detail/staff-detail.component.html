@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="staff">
+      <h2 data-cy="staffDetailsHeading"><span jhiTranslate="pilatesapplicationApp.staff.detail.title">Staff</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ staff.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.name">Name</span></dt>
+        <dd>
+          <span>{{ staff.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.email">Email</span></dt>
+        <dd>
+          <span>{{ staff.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.phone">Phone</span></dt>
+        <dd>
+          <span>{{ staff.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.city">City</span></dt>
+        <dd>
+          <span>{{ staff.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.address">Address</span></dt>
+        <dd>
+          <span>{{ staff.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.birthday">Birthday</span></dt>
+        <dd>
+          <span>{{ staff.birthday | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.hireDate">Hire Date</span></dt>
+        <dd>
+          <span>{{ staff.hireDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.salary">Salary</span></dt>
+        <dd>
+          <span>{{ staff.salary }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.role">Role</span></dt>
+        <dd>
+          <span>{{ staff.role | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.staff.status">Status</span></dt>
+        <dd>
+          <span>{{ staff.status }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Geri</span>
+      </button>
+
+      <button type="button" [routerLink]="['/staff', staff.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Düzenle</span>
+      </button>
+    </div>
+  </div>
+</div>

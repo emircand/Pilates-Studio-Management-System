@@ -1,0 +1,35 @@
+{
+  "pilatesapplicationApp": {
+    "staff": {
+      "home": {
+        "title": "Staff",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Staff",
+        "createOrEditLabel": "Créer ou éditer un Staff",
+        "search": "Recherche pour Staff",
+        "notFound": "Aucun Staff trouvé"
+      },
+      "created": "Un nouveau Staff a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Staff avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Staff avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Staff {{ id }} ?"
+      },
+      "detail": {
+        "title": "Staff"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "address": "Address",
+      "birthday": "Birthday",
+      "hireDate": "Hire Date",
+      "salary": "Salary",
+      "role": "Role",
+      "status": "Status",
+      "session": "Session"
+    }
+  }
+}

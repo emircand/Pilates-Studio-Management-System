@@ -1,0 +1,24 @@
+<form *ngIf="staff" name="deleteForm" (ngSubmit)="confirmDelete(staff.id!)">
+  <div class="modal-header">
+    <h4 class="modal-title" data-cy="staffDeleteDialogHeading" jhiTranslate="entity.delete.title">Silme işlemini onayla</h4>
+
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <p id="jhi-delete-staff-heading" jhiTranslate="pilatesapplicationApp.staff.delete.question" [translateValues]="{ id: staff.id }">
+      {{ staff.id }} nolu Staff silinecek. Devem etmek istiyor musunuz?
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">İptal</span>
+    </button>
+
+    <button id="jhi-confirm-delete-staff" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+      <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Sil</span>
+    </button>
+  </div>
+</form>

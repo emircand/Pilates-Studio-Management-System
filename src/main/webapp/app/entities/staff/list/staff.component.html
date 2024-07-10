@@ -1,0 +1,165 @@
+<div>
+  <h2 id="page-heading" data-cy="StaffHeading">
+    <span jhiTranslate="pilatesapplicationApp.staff.home.title">Staff</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="pilatesapplicationApp.staff.home.refreshListLabel">Listeyi yenile</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-staff"
+        [routerLink]="['/staff/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="pilatesapplicationApp.staff.home.createLabel">Yeni Staff ekle</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <form name="searchForm" class="row row-cols-sm-auto align-items-center">
+    <div class="col-sm-12">
+      <div class="input-group w-100 mt-3">
+        <label class="visually-hidden" for="currentSearch" jhiTranslate="pilatesapplicationApp.staff.home.search">Staff ara</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="currentSearch"
+          id="currentSearch"
+          name="currentSearch"
+          placeholder="{{ 'pilatesapplicationApp.staff.home.search' | translate }}"
+        />
+
+        <button class="btn btn-info" (click)="search(currentSearch)">
+          <fa-icon icon="search"></fa-icon>
+        </button>
+
+        <button class="btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+          <fa-icon icon="trash-alt"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="staff?.length === 0">
+    <span jhiTranslate="pilatesapplicationApp.staff.home.notFound">Staff kaydi bulunamadi</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="staff && staff.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.name">Name</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.email">Email</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phone">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.phone">Phone</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.city">City</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.address">Address</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="birthday">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.birthday">Birthday</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="hireDate">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.hireDate">Hire Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="salary">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.salary">Salary</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="role">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.role">Role</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.staff.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let staff of staff; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/staff', staff.id, 'view']">{{ staff.id }}</a>
+          </td>
+          <td>{{ staff.name }}</td>
+          <td>{{ staff.email }}</td>
+          <td>{{ staff.phone }}</td>
+          <td>{{ staff.city }}</td>
+          <td>{{ staff.address }}</td>
+          <td>{{ staff.birthday | formatMediumDatetime }}</td>
+          <td>{{ staff.hireDate | formatMediumDatetime }}</td>
+          <td>{{ staff.salary }}</td>
+          <td>{{ staff.role | formatMediumDatetime }}</td>
+          <td>{{ staff.status }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/staff', staff.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Görüntüle</span>
+              </a>
+
+              <a [routerLink]="['/staff', staff.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Düzenle</span>
+              </a>
+
+              <button type="submit" (click)="delete(staff)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Sil</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

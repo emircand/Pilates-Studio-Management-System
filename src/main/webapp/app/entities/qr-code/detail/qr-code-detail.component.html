@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="qRCode">
+      <h2 data-cy="qRCodeDetailsHeading"><span jhiTranslate="pilatesapplicationApp.qRCode.detail.title">QR Code</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ qRCode.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.qRCode.code">Code</span></dt>
+        <dd>
+          <span>{{ qRCode.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.qRCode.sessionId">Session Id</span></dt>
+        <dd>
+          <span>{{ qRCode.sessionId }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.qRCode.athleteId">Athlete Id</span></dt>
+        <dd>
+          <span>{{ qRCode.athleteId }}</span>
+        </dd>
+        <dt><span jhiTranslate="pilatesapplicationApp.qRCode.coachId">Coach Id</span></dt>
+        <dd>
+          <span>{{ qRCode.coachId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Geri</span>
+      </button>
+
+      <button type="button" [routerLink]="['/qr-code', qRCode.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Düzenle</span>
+      </button>
+    </div>
+  </div>
+</div>

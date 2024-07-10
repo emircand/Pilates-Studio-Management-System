@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20231116214946",
+  "entityTableName": "session_package",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "credits",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "reviseCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cancelCount",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "SessionPackage",
+  "relationships": []
+}

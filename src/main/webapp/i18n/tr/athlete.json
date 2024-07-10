@@ -1,0 +1,32 @@
+{
+  "pilatesapplicationApp": {
+    "athlete": {
+      "home": {
+        "title": "Athletes",
+        "refreshListLabel": "Listeyi yenile",
+        "createLabel": "Yeni Athlete ekle",
+        "createOrEditLabel": "Yeni Athlete ekle veya guncelle",
+        "search": "Athlete ara",
+        "notFound": "Athletes kaydi bulunamadi"
+      },
+      "created": "{{ param }} ID ile bir Athlete eklendi",
+      "updated": "{{ param }} nolu Athlete guncellendi",
+      "deleted": "{{ param }} nolu Athlete silindi",
+      "delete": {
+        "question": "{{ id }} nolu Athlete silinecek. Devem etmek istiyor musunuz?"
+      },
+      "detail": {
+        "title": "Athlete"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "address": "Address",
+      "birthday": "Birthday",
+      "sessionPackage": "Session Package",
+      "session": "Session"
+    }
+  }
+}

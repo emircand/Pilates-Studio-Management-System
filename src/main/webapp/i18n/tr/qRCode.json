@@ -1,0 +1,28 @@
+{
+  "pilatesapplicationApp": {
+    "qRCode": {
+      "home": {
+        "title": "QR Codes",
+        "refreshListLabel": "Listeyi yenile",
+        "createLabel": "Yeni QR Code ekle",
+        "createOrEditLabel": "Yeni QR Code ekle veya guncelle",
+        "search": "QR Code ara",
+        "notFound": "QR Codes kaydi bulunamadi"
+      },
+      "created": "{{ param }} ID ile bir QR Code eklendi",
+      "updated": "{{ param }} nolu QR Code guncellendi",
+      "deleted": "{{ param }} nolu QR Code silindi",
+      "delete": {
+        "question": "{{ id }} nolu QR Code silinecek. Devem etmek istiyor musunuz?"
+      },
+      "detail": {
+        "title": "QR Code"
+      },
+      "id": "ID",
+      "code": "Code",
+      "sessionId": "Session Id",
+      "athleteId": "Athlete Id",
+      "coachId": "Coach Id"
+    }
+  }
+}

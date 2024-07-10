@@ -1,0 +1,31 @@
+{
+  "pilatesapplicationApp": {
+    "session": {
+      "home": {
+        "title": "Sessions",
+        "refreshListLabel": "Listeyi yenile",
+        "createLabel": "Yeni Session ekle",
+        "createOrEditLabel": "Yeni Session ekle veya guncelle",
+        "search": "Session ara",
+        "notFound": "Sessions kaydi bulunamadi"
+      },
+      "created": "{{ param }} ID ile bir Session eklendi",
+      "updated": "{{ param }} nolu Session guncellendi",
+      "deleted": "{{ param }} nolu Session silindi",
+      "delete": {
+        "question": "{{ id }} nolu Session silinecek. Devem etmek istiyor musunuz?"
+      },
+      "detail": {
+        "title": "Session"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "qrCode": "Qr Code",
+      "sessionStatus": "Session Status",
+      "isNotified": "Is Notified",
+      "staff": "Staff",
+      "athlete": "Athlete"
+    }
+  }
+}

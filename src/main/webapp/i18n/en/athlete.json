@@ -1,0 +1,32 @@
+{
+  "pilatesapplicationApp": {
+    "athlete": {
+      "home": {
+        "title": "Athletes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Athlete",
+        "createOrEditLabel": "Create or edit a Athlete",
+        "search": "Search for Athlete",
+        "notFound": "No Athletes found"
+      },
+      "created": "A new Athlete is created with identifier {{ param }}",
+      "updated": "A Athlete is updated with identifier {{ param }}",
+      "deleted": "A Athlete is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Athlete {{ id }}?"
+      },
+      "detail": {
+        "title": "Athlete"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "address": "Address",
+      "birthday": "Birthday",
+      "sessionPackage": "Session Package",
+      "session": "Session"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20231116215046",
+  "entityTableName": "athlete",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthday",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Athlete",
+  "relationships": [
+    {
+      "otherEntityName": "sessionPackage",
+      "relationshipName": "sessionPackage",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "session",
+      "relationshipName": "session",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ]
+}

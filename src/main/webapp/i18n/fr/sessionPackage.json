@@ -1,0 +1,32 @@
+{
+  "pilatesapplicationApp": {
+    "sessionPackage": {
+      "home": {
+        "title": "SessionPackages",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Session Package",
+        "createOrEditLabel": "Créer ou éditer un Session Package",
+        "search": "Recherche pour Session Package",
+        "notFound": "Aucun Session Package trouvé"
+      },
+      "created": "Un nouveau Session Package a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Session Package avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Session Package avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Session Package {{ id }} ?"
+      },
+      "detail": {
+        "title": "Session Package"
+      },
+      "id": "Id",
+      "name": "Name",
+      "price": "Price",
+      "credits": "Credits",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "reviseCount": "Revise Count",
+      "cancelCount": "Cancel Count",
+      "athlete": "Athlete"
+    }
+  }
+}

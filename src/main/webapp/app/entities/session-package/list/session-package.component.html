@@ -1,0 +1,146 @@
+<div>
+  <h2 id="page-heading" data-cy="SessionPackageHeading">
+    <span jhiTranslate="pilatesapplicationApp.sessionPackage.home.title">Session Packages</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="pilatesapplicationApp.sessionPackage.home.refreshListLabel">Listeyi yenile</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-session-package"
+        [routerLink]="['/session-package/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="pilatesapplicationApp.sessionPackage.home.createLabel">Yeni Session Package ekle</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <form name="searchForm" class="row row-cols-sm-auto align-items-center">
+    <div class="col-sm-12">
+      <div class="input-group w-100 mt-3">
+        <label class="visually-hidden" for="currentSearch" jhiTranslate="pilatesapplicationApp.sessionPackage.home.search"
+          >Session Package ara</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="currentSearch"
+          id="currentSearch"
+          name="currentSearch"
+          placeholder="{{ 'pilatesapplicationApp.sessionPackage.home.search' | translate }}"
+        />
+
+        <button class="btn btn-info" (click)="search(currentSearch)">
+          <fa-icon icon="search"></fa-icon>
+        </button>
+
+        <button class="btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+          <fa-icon icon="trash-alt"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sessionPackages?.length === 0">
+    <span jhiTranslate="pilatesapplicationApp.sessionPackage.home.notFound">Session Packages kaydi bulunamadi</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="sessionPackages && sessionPackages.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.id">Id</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.name">Name</span>
+              <fa-icon class="p-1" *ngIf="!currentSearch" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="price">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.price">Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="credits">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.credits">Credits</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="startDate">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.startDate">Start Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="endDate">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.endDate">End Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="reviseCount">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.reviseCount">Revise Count</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cancelCount">
+            <div class="d-flex">
+              <span jhiTranslate="pilatesapplicationApp.sessionPackage.cancelCount">Cancel Count</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sessionPackage of sessionPackages; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/session-package', sessionPackage.id, 'view']">{{ sessionPackage.id }}</a>
+          </td>
+          <td>{{ sessionPackage.name }}</td>
+          <td>{{ sessionPackage.price }}</td>
+          <td>{{ sessionPackage.credits }}</td>
+          <td>{{ sessionPackage.startDate | formatMediumDatetime }}</td>
+          <td>{{ sessionPackage.endDate | formatMediumDatetime }}</td>
+          <td>{{ sessionPackage.reviseCount }}</td>
+          <td>{{ sessionPackage.cancelCount }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/session-package', sessionPackage.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Görüntüle</span>
+              </a>
+
+              <a [routerLink]="['/session-package', sessionPackage.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Düzenle</span>
+              </a>
+
+              <button type="submit" (click)="delete(sessionPackage)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Sil</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

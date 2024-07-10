@@ -1,0 +1,28 @@
+{
+  "pilatesapplicationApp": {
+    "qRCode": {
+      "home": {
+        "title": "QR Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new QR Code",
+        "createOrEditLabel": "Create or edit a QR Code",
+        "search": "Search for QR Code",
+        "notFound": "No QR Codes found"
+      },
+      "created": "A new QR Code is created with identifier {{ param }}",
+      "updated": "A QR Code is updated with identifier {{ param }}",
+      "deleted": "A QR Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete QR Code {{ id }}?"
+      },
+      "detail": {
+        "title": "QR Code"
+      },
+      "id": "ID",
+      "code": "Code",
+      "sessionId": "Session Id",
+      "athleteId": "Athlete Id",
+      "coachId": "Coach Id"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = com.pilatesapp.app.\
+    config.TestContainersSpringContextCustomizerFactory,com.pilatesapp.app.\
+    config.SqlTestContainersSpringContextCustomizerFactory

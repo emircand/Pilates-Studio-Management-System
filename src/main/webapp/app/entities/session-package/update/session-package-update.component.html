@@ -1,0 +1,111 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-session-package-heading"
+        data-cy="SessionPackageCreateUpdateHeading"
+        jhiTranslate="pilatesapplicationApp.sessionPackage.home.createOrEditLabel"
+      >
+        Yeni Session Package ekle veya guncelle
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.id" for="field_id">Id</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.price" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.credits" for="field_credits">Credits</label>
+          <input type="number" class="form-control" name="credits" id="field_credits" data-cy="credits" formControlName="credits" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.startDate" for="field_startDate">Start Date</label>
+          <div class="d-flex">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="datetime-local"
+              class="form-control"
+              name="startDate"
+              formControlName="startDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.endDate" for="field_endDate">End Date</label>
+          <div class="d-flex">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="datetime-local"
+              class="form-control"
+              name="endDate"
+              formControlName="endDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.reviseCount" for="field_reviseCount"
+            >Revise Count</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="reviseCount"
+            id="field_reviseCount"
+            data-cy="reviseCount"
+            formControlName="reviseCount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pilatesapplicationApp.sessionPackage.cancelCount" for="field_cancelCount"
+            >Cancel Count</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="cancelCount"
+            id="field_cancelCount"
+            data-cy="cancelCount"
+            formControlName="cancelCount"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">İptal</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Kaydet</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

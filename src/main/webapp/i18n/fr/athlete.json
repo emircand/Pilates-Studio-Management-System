@@ -1,0 +1,32 @@
+{
+  "pilatesapplicationApp": {
+    "athlete": {
+      "home": {
+        "title": "Athletes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Athlete",
+        "createOrEditLabel": "Créer ou éditer un Athlete",
+        "search": "Recherche pour Athlete",
+        "notFound": "Aucun Athlete trouvé"
+      },
+      "created": "Un nouveau Athlete a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Athlete avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Athlete avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Athlete {{ id }} ?"
+      },
+      "detail": {
+        "title": "Athlete"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "address": "Address",
+      "birthday": "Birthday",
+      "sessionPackage": "Session Package",
+      "session": "Session"
+    }
+  }
+}

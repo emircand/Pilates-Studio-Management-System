@@ -1,0 +1,11 @@
+{
+  "pilatesapplicationApp": {
+    "SessionStatus": {
+      "null": "",
+      "Waiting": "Waiting",
+      "Canceled": "Canceled",
+      "Done": "Done",
+      "Undone": "Undone"
+    }
+  }
+}
